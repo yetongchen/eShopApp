@@ -15,9 +15,10 @@ namespace ShippingMicroservice.Infrastructure.Data
         {
         }
 
-        public DbSet<Region> Region { get; set; } = null!;
-        public DbSet<Shipper> Shipper { get; set; } = null!;
-        public DbSet<Shipper_Region> Shipper_Region { get; set; } = null!;
+        public DbSet<Region> Region { get; set; }
+        public DbSet<Shipper> Shipper { get; set; }
+        public DbSet<Shipper_Region> Shipper_Region { get; set; }
+        public DbSet<Shipper_Details> Shipper_Details { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,6 +36,11 @@ namespace ShippingMicroservice.Infrastructure.Data
                 .HasOne(sr => sr.Shipper)
                 .WithMany(s => s.Shipper_Regions)
                 .HasForeignKey(sr => sr.Shipper_Id);
+
+            modelBuilder.Entity<Shipper_Details>()
+                .HasOne(sd => sd.Shipper)
+                .WithMany(s => s.Shipping_Details)
+                .HasForeignKey(sd => sd.Shipper_Id);
 
             base.OnModelCreating(modelBuilder);
         }

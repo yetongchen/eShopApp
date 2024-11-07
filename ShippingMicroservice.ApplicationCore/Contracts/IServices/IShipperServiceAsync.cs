@@ -13,8 +13,8 @@ namespace ShippingMicroservice.ApplicationCore.Contracts.IServices
         Task<IEnumerable<ShipperResponseModel>> GetAllShippersAsync();
         Task<ShipperResponseModel?> GetShipperByIdAsync(int id);
         Task<IEnumerable<ShipperResponseModel>> GetShipperByRegionAsync(string region);
-        Task AddShipperAsync(ShipperRequestModel model);
-        Task UpdateShipperAsync(int id, ShipperRequestModel model);
-        Task DeleteShipperAsync(int id);
+        Task<int> AddShipperAsync(ShipperRequestModel model);
+        Task<int> UpdateShipperAsync(ShipperRequestModel model);
+        Task<int> DeleteShipperAsync(int id);
     }
 }

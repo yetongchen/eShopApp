@@ -10,11 +10,12 @@ namespace ShippingMicroservice.ApplicationCore.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public string EmailId { get; set; } = string.Empty;
-        public string? Phone { get; set; } // Nullable field
-        public string? Contact_Person { get; set; } // Nullable field
+        public string? EmailId { get; set; }
+        public string? Phone { get; set; }
+        public string? Contact_Person { get; set; }
 
         // Navigation property
         public ICollection<Shipper_Region> Shipper_Regions { get; set; } = [];
+        public ICollection<Shipper_Details> Shipping_Details { get; set; } = [];
     }
 }

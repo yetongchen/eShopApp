@@ -9,6 +9,6 @@ namespace ShippingMicroservice.ApplicationCore.Contracts.IRepositoreis
 {
     public interface IShipperRepositoryAsync : IRepositoryAsync<Shipper>
     {
-        Task<IEnumerable<Shipper>> GetShipperByRegionAsync(string region);
+        Task<IEnumerable<Shipper>> GetShippersByRegionAsync(string region);
     }
 }

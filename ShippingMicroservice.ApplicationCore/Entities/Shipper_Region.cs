@@ -13,5 +13,7 @@ namespace ShippingMicroservice.ApplicationCore.Entities
 
         public int Shipper_Id { get; set; }
         public Shipper Shipper { get; set; } = null!;
+
+        public bool Active { get; set; }
     }
 }

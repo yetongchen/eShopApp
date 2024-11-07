@@ -21,3 +21,38 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__ProductServiceDB=Data Source=172.16.40.21,1433;Initial Catalog=ProductServiceDB;User ID=sa;Password=BatchSep@2024;Trust Server Certificate=True
 
+
+  shippingmicroservice:
+    image: ${DOCKER_REGISTRY-}shippingmicroservice
+    build:
+      context: .
+      dockerfile: ShippingMicroservice/Dockerfile
+    ports:
+      - "63989:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__ShipperServiceDB=Data Source=172.16.40.21,1433;Initial Catalog=ShipperServiceDB;User ID=sa;Password=BatchSep@2024;Trust Server Certificate=True
+
+
+  reviewmicroservice:
+    image: ${DOCKER_REGISTRY-}reviewmicroservice
+    build:
+      context: .
+      dockerfile: ReviewMicroservice/Dockerfile
+    ports:
+      - "63990:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__ReviewServiceDB=Data Source=172.16.40.21,1433;Initial Catalog=ReviewServiceDB;User ID=sa;Password=BatchSep@2024;Trust Server Certificate=True
+
+  promotionmicroservice:
+    image: ${DOCKER_REGISTRY-}promotionmicroservice
+    build:
+      context: .
+      dockerfile: PromotionMicroservice/Dockerfile
+    ports:
+      - "63991:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__PromotionServiceDB=Data Source=172.16.40.21,1433;Initial Catalog=PromotionServiceDB;User ID=sa;Password=BatchSep@2024;Trust Server Certificate=True
+

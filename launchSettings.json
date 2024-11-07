@@ -5,7 +5,10 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "ordermicroservice": "StartDebugging",
-        "productmicroservice": "StartDebugging"
+        "productmicroservice": "StartDebugging",
+        "shippingmicroservice": "StartDebugging",
+        "reviewmicroservice": "StartDebugging",
+        "promotionmicroservice": "StartDebugging"
       }
     }
   }

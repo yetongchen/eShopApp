@@ -17,7 +17,7 @@ namespace ShippingMicroservice.ApplicationCore.Models.Request
 
         [EmailAddress]
         [StringLength(255)]
-        public string? Email { get; set; }
+        public string? EmailId { get; set; }
 
         [RegularExpression(@"^\d{10}$", ErrorMessage = "Phone number must be 10 digits")]
         public string? Phone { get; set; }
