@@ -1,0 +1,23 @@
+services:
+  ordermicroservice:
+    image: ${DOCKER_REGISTRY-}ordermicroservice
+    build:
+      context: .
+      dockerfile: OrderMicroservice/Dockerfile
+    ports:
+      - "63987:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__OrderServiceDB=Data Source=172.16.40.21,1433;Initial Catalog=OrderServiceDB;User ID=sa;Password=BatchSep@2024;Trust Server Certificate=True
+
+  productmicroservice:
+    image: ${DOCKER_REGISTRY-}productmicroservice
+    build:
+      context: .
+      dockerfile: ProductMicroservice/Dockerfile
+    ports:
+      - "63988:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__ProductServiceDB=Data Source=172.16.40.21,1433;Initial Catalog=ProductServiceDB;User ID=sa;Password=BatchSep@2024;Trust Server Certificate=True
+

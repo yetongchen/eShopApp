@@ -1,0 +1,2 @@
+OrderMicroservice: http://localhost:63987/swagger/index.html
+ProductMicroservice: http://localhost:63988/swagger/index.html

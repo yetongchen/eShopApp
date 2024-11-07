@@ -1,0 +1,122 @@
+# Build artifacts
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+Generated_Code/
+
+# Backup & temporary files
+*.bak
+*.swp
+*.tmp
+*.temp
+*.log
+*.orig
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Rider / JetBrains IDEs
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio
+.vs/
+.vscode/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# DotNet Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+!**/src/**/obj/**/Generated.cs
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Entity Framework migrations
+Migrations/
+
+# npm packages
+node_modules/
+
+# Logs
+logs/
+*.log
+*.tlog
+*.tsbuildinfo
+
+# Coverage reports
+coverage/
+*.coverage
+*.coveragexml
+*.opencover.xml
+
+# StyleCop
+StyleCopReport.xml
+
+# NPM Packages
+node_modules/
+jspm_packages/
+
+# Yarn
+.yarn/
+.pnp.*
+.pnp.js
+.pnpignore
+
+# IDE-specific caches
+.idea/
+.ionide/
+
+# Mac-specific files
+*.DS_Store
+
+# Packages
+packages/
+*.nupkg
+*.snupkg
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Lock files
+*.lock.json
+
+# Certificate files
+*.pfx
+*.p12
+
+# Rider & Rider Plugin
+.idea/
+.Rider/
+# Rider logs
+*.idea/workspace.xml
+# Unit Test files
+*.UnitTestSession.xml
+
+# DotNet Console
+DumpFolder/
+
+# Local configuration
+appsettings.Local.json
+
+# Generated files
+*.Generated.cs
