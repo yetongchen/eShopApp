@@ -15,7 +15,10 @@ namespace ShippingMicroservice.ApplicationCore.Helper.Mapper
         public ApplicationMapper()
         {
             CreateMap<Shipper, ShipperResponseModel>();
-            CreateMap<ShipperRequestModel, Shipper>();
+            CreateMap<Shipper, ShipperRequestModel>();
+
+            CreateMap<Shipper_Details, ShipperRequestModel>();
+            CreateMap<Shipper_Details, ShipperResponseModel>();
         }
     }
 }

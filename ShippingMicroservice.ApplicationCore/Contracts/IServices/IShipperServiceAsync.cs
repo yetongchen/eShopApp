@@ -16,5 +16,6 @@ namespace ShippingMicroservice.ApplicationCore.Contracts.IServices
         Task<int> AddShipperAsync(ShipperRequestModel model);
         Task<int> UpdateShipperAsync(ShipperRequestModel model);
         Task<int> DeleteShipperAsync(int id);
+        Task<int> UpdateShipperDetailsAsync(ShipperDetailsRequestModel model);
     }
 }

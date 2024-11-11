@@ -11,6 +11,9 @@ namespace ShippingMicroservice.Helper.Mapper
         {
             CreateMap<Shipper, ShipperResponseModel>();
             CreateMap<ShipperRequestModel, Shipper>();
+
+            CreateMap<Shipper_Details, ShipperRequestModel>();
+            CreateMap<Shipper_Details, ShipperResponseModel>();
         }
     }
 }

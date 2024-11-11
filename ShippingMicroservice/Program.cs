@@ -4,6 +4,7 @@ using ShippingMicroservice.ApplicationCore.Contracts.IServices;
 using ShippingMicroservice.Infrastructure.Data;
 using ShippingMicroservice.Infrastructure.Repositories;
 using ShippingMicroservice.Infrastructure.Services;
+using System.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,10 +30,17 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 // Register repositories
 builder.Services.AddScoped<IShipperRepositoryAsync, ShipperRepositoryAsync>();
+builder.Services.AddScoped<IShipperDetailsRepositoryAsync, ShipperDetailsRepositoryAsync>();
 
 // Register services
 builder.Services.AddScoped<IShipperServiceAsync, ShipperServiceAsync>();
 
+// Configure HTTP Client
+builder.Services.AddHttpClient("OrderMicroservice", client =>
+{
+    client.BaseAddress = new Uri("http://host.docker.internal:63987/api");
+    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+});
 
 var app = builder.Build();
 

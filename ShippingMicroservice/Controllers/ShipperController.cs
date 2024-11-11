@@ -36,13 +36,24 @@ namespace ShippingMicroservice.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] ShipperRequestModel request, int id)
+        public async Task<IActionResult> Put([FromBody] ShipperRequestModel request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             var result = await shipperServiceAsync.UpdateShipperAsync(request);
+            return Ok(result);
+        }
+
+        [HttpPut("Details")]
+        public async Task<IActionResult> Put([FromBody] ShipperDetailsRequestModel request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var result = await shipperServiceAsync.UpdateShipperDetailsAsync(request);
             return Ok(result);
         }
 
