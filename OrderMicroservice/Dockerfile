@@ -14,6 +14,7 @@ WORKDIR /src
 COPY ["OrderMicroservice/OrderMicroservice.csproj", "OrderMicroservice/"]
 COPY ["OrderMicroservice.Infrastructure/OrderMicroservice.Infrastructure.csproj", "OrderMicroservice.Infrastructure/"]
 COPY ["OrderMicroservice.ApplicationCore/OrderMicroservice.ApplicationCore.csproj", "OrderMicroservice.ApplicationCore/"]
+COPY ["RabbitMqHelper/RabbitMqHelper.csproj", "RabbitMqHelper/"]
 RUN dotnet restore "./OrderMicroservice/OrderMicroservice.csproj"
 COPY . .
 WORKDIR "/src/OrderMicroservice"

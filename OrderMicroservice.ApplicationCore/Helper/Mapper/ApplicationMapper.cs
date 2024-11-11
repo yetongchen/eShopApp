@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using OrderMicroservice.ApplicationCore.Entities;
+using OrderMicroservice.ApplicationCore.Events;
 using OrderMicroservice.ApplicationCore.Models.Request;
 using OrderMicroservice.ApplicationCore.Models.Response;
 using System;
@@ -16,6 +17,9 @@ namespace OrderMicroservice.ApplicationCore.Helper.Mapper
         {
             CreateMap<OrderMicroservice.ApplicationCore.Entities.Order, OrderRequestModel>().ReverseMap();
             CreateMap<OrderMicroservice.ApplicationCore.Entities.Order, OrderResponseModel>().ReverseMap();
+
+            CreateMap<OrderMicroservice.ApplicationCore.Entities.Order, OrderEvent>().ReverseMap();
+            CreateMap<OrderDetail, OrderDetailEvent>().ReverseMap();
 
             CreateMap<CustomerAddressRequestModel, Address>();
             CreateMap<CustomerAddressRequestModel, UserAddress>()

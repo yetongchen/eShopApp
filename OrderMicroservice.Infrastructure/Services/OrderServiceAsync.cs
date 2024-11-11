@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using OrderMicroservice.ApplicationCore.Contracts.IRepositories;
 using OrderMicroservice.ApplicationCore.Contracts.IServices;
+using OrderMicroservice.ApplicationCore.Events;
 using OrderMicroservice.ApplicationCore.Models.Request;
 using OrderMicroservice.ApplicationCore.Models.Response;
+using RabbitMqHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,13 @@ namespace Order.Infrastructure.Services
     {
         private readonly IOrderRepositoryAsync orderRepository;
         private readonly IMapper mapper;
-        public OrderServiceAsync(IOrderRepositoryAsync orderRepository, IMapper mapper)
+        private readonly MessageQueue messageQueue;
+
+        public OrderServiceAsync(IOrderRepositoryAsync orderRepository, IMapper mapper, MessageQueue messageQueue)
         {
             this.orderRepository = orderRepository;
             this.mapper = mapper;
+            this.messageQueue = messageQueue;
         }
         public async Task<int> DeleteOrder(int id)
         {
@@ -85,7 +90,15 @@ namespace Order.Infrastructure.Services
                 return 0;
             }
             order.OrderStatus = "Completed";
-            return await orderRepository.UpdateAsync(order);
+            var result = await orderRepository.UpdateAsync(order);
+
+            if (result > 0)
+            {
+                var orderEvent = mapper.Map<OrderEvent>(order);
+                await messageQueue.AddMessageToQueueAsync(orderEvent, "orderExchange", "orderQueue", "order.completed");
+            }
+
+            return result;
         }
     }
 }

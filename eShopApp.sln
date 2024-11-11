@@ -45,6 +45,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShippingMicroservice.Infras
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromotionMicroservice.Infrastructure", "PromotionMicroservice.Infrastructure\PromotionMicroservice.Infrastructure.csproj", "{126CEE9E-2A8B-40D5-B233-72B64C6804B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMqHelper", "RabbitMqHelper\RabbitMqHelper.csproj", "{041F0DD8-2D6B-43C0-9650-4616579B8504}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,10 @@ Global
 		{126CEE9E-2A8B-40D5-B233-72B64C6804B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{126CEE9E-2A8B-40D5-B233-72B64C6804B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{126CEE9E-2A8B-40D5-B233-72B64C6804B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{041F0DD8-2D6B-43C0-9650-4616579B8504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{041F0DD8-2D6B-43C0-9650-4616579B8504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{041F0DD8-2D6B-43C0-9650-4616579B8504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{041F0DD8-2D6B-43C0-9650-4616579B8504}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

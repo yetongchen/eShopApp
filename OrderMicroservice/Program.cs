@@ -5,6 +5,7 @@ using OrderMicroservice.ApplicationCore.Contracts.IServices;
 using OrderMicroservice.Infrastructure.Data;
 using OrderMicroservice.Infrastructure.Repositories;
 using OrderMicroservice.Infrastructure.Services;
+using RabbitMqHelper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,6 +46,18 @@ builder.Services.AddScoped<IOrderServiceAsync, OrderServiceAsync>();
 builder.Services.AddScoped<IPaymentServiceAsync, PaymentServiceAsync>();
 builder.Services.AddScoped<IShoppingCartItemServiceAsync, ShoppingCartItemServiceAsync>();
 builder.Services.AddScoped<IShoppingCartServiceAsync, ShoppingCartServiceAsync>();
+
+// RabbitMQ
+builder.Services.AddSingleton<MessageQueue>(serviceProvider =>
+{
+    var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+    string url = configuration["RabbitMQ:Url"] ?? "amqp://guest:guest@localhost:5672";
+    string providerName = "OrderMicroservice";
+
+    var messageQueue = new MessageQueue(url, providerName);
+    messageQueue.InitializeAsync().GetAwaiter().GetResult();
+    return messageQueue;
+});
 
 
 var app = builder.Build();
